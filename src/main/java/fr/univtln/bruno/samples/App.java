@@ -2,6 +2,7 @@ package fr.univtln.bruno.samples;
 
 import fr.univtln.bruno.samples.annotations.MyAnnotation;
 import fr.univtln.bruno.samples.dao.AnimalDAO;
+import fr.univtln.bruno.samples.dao.ChienDAO;
 import fr.univtln.bruno.samples.entities.Animal;
 import fr.univtln.bruno.samples.entities.Chien;
 
@@ -50,19 +51,35 @@ public class App {
 
             EntityTransaction transaction = animalDAO.getTransaction();
 
-
             transaction.begin();
             animalDAO.persist(animal);
             animalDAO.persist(animal2);
-            animalDAO.persist(chien);
 
-            System.out.println("Animal 1:" + animalDAO.find(2));
-            System.out.println("Animal 2:" + animalDAO.find(3));
+            System.out.println("Animal 2:" + animalDAO.find(2));
+            System.out.println("Animal 3:" + animalDAO.find(3));
             System.out.println("Rex ?:" + animalDAO.findByName("Rex"));
+
+            System.out.println(animalDAO.findAll());
 
             transaction.commit();
 
         }
+
+        try (ChienDAO chienDAO = ChienDAO.of()) {
+
+            EntityTransaction transaction = chienDAO.getTransaction();
+
+            transaction.begin();
+            chienDAO.persist(chien);
+
+            System.out.println("Rex ?:" + chienDAO.findAll());
+
+            System.out.println(chienDAO.findAll());
+
+            transaction.commit();
+
+        }
+
 
     }
 }
