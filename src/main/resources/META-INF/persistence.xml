@@ -6,9 +6,9 @@
 
     <persistence-unit name="mypu" transaction-type="RESOURCE_LOCAL">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-        <class>fr.univtln.bruno.samples.Zoo</class>
-        <class>fr.univtln.bruno.samples.Animal</class>
-        <class>fr.univtln.bruno.samples.Chien</class>
+        <class>fr.univtln.bruno.samples.entities.Zoo</class>
+        <class>fr.univtln.bruno.samples.entities.Animal</class>
+        <class>fr.univtln.bruno.samples.entities.Chien</class>
         <properties>
             <!-- Les paramètres de connexions -->
             <property name="javax.persistence.target-database" value="h2"/>
