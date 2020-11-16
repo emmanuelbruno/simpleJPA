@@ -12,6 +12,7 @@ import java.lang.reflect.ParameterizedType;
 public abstract class AbstractDAO<T extends SimpleEntity> implements DAO<T> {
 
     private Class<T> myType;
+
     private EntityManager entityManager = Persistence
             .createEntityManagerFactory(App.properties.getProperty("pu")).createEntityManager();
 
